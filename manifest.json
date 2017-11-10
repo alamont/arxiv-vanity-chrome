@@ -1,18 +1,25 @@
 {
-    "name": "Arxiv Vanity",
-    "version": "0.1",
-    "permissions": [
-      "https://arxiv.org/abs/*"
-    ],
+    "author": "Zach Hobbs & Andres Lamont",
+    "content_scripts": [{
+        "matches": [
+            "https://arxiv.org/abs/*"
+        ],
+        "js": [
+            "addlink.js"
+        ],
+        "run_at": "document_end"
+    }],
     "icons": {
         "160": "icon.png"
     },
-    "content_scripts": [
-      {
-        "matches": ["https://arxiv.org/abs/*"],
-        "js": ["addlink.js"],
-        "run_at": "document_end"
-      }
+    "manifest_version": 2,
+    "name": "Arxiv Vanity",
+    "permissions": [
+        "https://arxiv.org/abs/*"
     ],
-    "manifest_version": 2
-  }
+    "version": "0.1",
+    "-ms-preload": {
+        "backgroundScript": "backgroundScriptsAPIBridge.js",
+        "contentScript": "contentScriptsAPIBridge.js"
+    }
+}
